@@ -9,11 +9,11 @@ datasource db {
 }
 
 model User { 
-  id            String       @id @default(uuid())
+  id            String       @id @default(uuid())@unique
   name          String
   email         String
   password      String
-  role          Int
+  role          Int    @default(0)
   created_at    DateTime @default(now())
   updated_at    DateTime @default(now())
 
@@ -67,16 +67,16 @@ model Occurrence{
   updated_at          DateTime @default(now())
   
   @@map("occurrence")
-  identificacao_occurrence Identificacao_occurrence @relation(fields: [identificacao_id],  references: [ identificacao_id])
-  classificacao            Classificacao            @relation(fields: [classificacao_id],  references: [ classificacao_id])
-  unidade                  Unidade                  @relation(fields: [unidade_id],        references: [ unidade_id])
-  assunto                  Assunto                  @relation(fields: [assunto_id],        references: [ assunto_id])
-  sub_assunto              Sub_assunto              @relation(fields: [sub_assunto_id],    references: [ sub_assunto_id])
-  forma_resposta           Forma_resposta           @relation(fields: [forma_resposta_id], references: [ forma_resposta_id])
-  canal                    Canal                    @relation(fields: [canal_id],          references: [ canal_id])
-  tp_demandante            Tp_demandante            @relation(fields: [tp_demandante_id],  references: [ tp_demandante_id])
-  tp_contrato              Tp_contrato              @relation(fields: [tp_contrato_id],    references: [ tp_contrato_id])
-  status                   Status                   @relation(fields: [status_id],         references: [ status_id])
+  identificacao_occurrence Identificacao_occurrence?         @relation(fields: [identificacao_id],  references: [ identificacao_id])
+  classificacao            Classificacao           ?         @relation(fields: [classificacao_id],  references: [ classificacao_id])
+  unidade                  Unidade                 ?         @relation(fields: [unidade_id],        references: [ unidade_id])
+  assunto                  Assunto                 ?         @relation(fields: [assunto_id],        references: [ assunto_id])
+  sub_assunto              Sub_assunto             ?         @relation(fields: [sub_assunto_id],    references: [ sub_assunto_id])
+  forma_resposta           Forma_resposta          ?         @relation(fields: [forma_resposta_id], references: [ forma_resposta_id])
+  canal                    Canal                   ?         @relation(fields: [canal_id],          references: [ canal_id])
+  tp_demandante            Tp_demandante           ?         @relation(fields: [tp_demandante_id],  references: [ tp_demandante_id])
+  tp_contrato              Tp_contrato             ?         @relation(fields: [tp_contrato_id],    references: [ tp_contrato_id])
+  status                   Status                  ?         @relation(fields: [status_id],         references: [ status_id])
 
   
 }

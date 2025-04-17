@@ -12,11 +12,6 @@ interface UserRequest {
 
 class CreateUserService {
   async execute({ name, email, password, role  }: UserRequest) {
-
-    if (!email) {
-      return {logError: 1, status: 400, error: "Email incorreto!" };
-    }
-
     
     const userAlreadyExists = await prisma.user.findFirst({
       where: {

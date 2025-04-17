@@ -13,11 +13,17 @@ class CreateUserController {
         const user = await createUserService.execute({name, email, password, role});
         
         if (!user) {
-            return({ status: 400, error: "Falha ao criar o usuário!"})
+            return res.status(400).send( "Falha ao criar o usuário!")
         }
-        console.log(user);
+        if (user.logError ===1) {
+            return res.status(user.status).send(user.error)
+        }
+        if (user) {
+            
+        }
+
+         return res.json(user);
         
-        return res.json(user);
     }
 }
 

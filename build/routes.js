@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+const express_1 = require("express");
+const router = (0, express_1.Router)();
+exports.router = router;
+const AuthUserController_1 = require("./controlers/user/AuthUserController");
+const isAuthenticated_1 = require("./middlewares/isAuthenticated");
+const CreateUserController_1 = require("./controlers/user/CreateUserController");
+const DeleteOcurrenceController_1 = require("./controlers/occurrence/DeleteOcurrenceController");
+const UpdateOcurrenceConstroller_1 = require("./controlers/occurrence/UpdateOcurrenceConstroller");
+router.post("/session", new AuthUserController_1.AuthUserController().handle);
+router.post("/user", new CreateUserController_1.CreateUserController().handle);
+router.delete("/ocurrence/:id", isAuthenticated_1.isAuthenticated, new DeleteOcurrenceController_1.DeleteOcurrenceController().handle);
+router.put("ocurrence/:id", isAuthenticated_1.isAuthenticated, new UpdateOcurrenceConstroller_1.UpdateOcurrenceController().handle);
