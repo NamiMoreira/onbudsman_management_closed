@@ -12,12 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateOcurrenceController = void 0;
 const UpdateOcurrenceService_1 = require("../../services/occurrence/UpdateOcurrenceService");
 class UpdateOcurrenceController {
-    handle(res, req) {
+    handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
+            let { id } = req.params;
             const { reanalise, classificacao_id, unidade_id, descricao, cartao_beneficiario, manifestacao_ant, identificacao_id, forma_resposta_id, assunto_id, sub_assunto_id, nome, email, CPF, telefone, canal_id } = req.body;
+            console.log('teste');
             const updateOcurrenceService = new UpdateOcurrenceService_1.UpdateOcurrenceService();
-            const ocurrence = yield updateOcurrenceService.execute({ id }, { reanalise, classificacao_id, unidade_id, descricao, cartao_beneficiario, manifestacao_ant, identificacao_id, forma_resposta_id, assunto_id, sub_assunto_id, nome, email, CPF, telefone, canal_id });
+            const ocurrence = yield updateOcurrenceService.execute(id, { reanalise, classificacao_id, unidade_id, descricao, cartao_beneficiario, manifestacao_ant, identificacao_id, forma_resposta_id, assunto_id, sub_assunto_id, nome, email, CPF, telefone, canal_id });
             return res.json(ocurrence);
         });
     }

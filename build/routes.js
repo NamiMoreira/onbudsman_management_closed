@@ -12,4 +12,4 @@ const UpdateOcurrenceConstroller_1 = require("./controlers/occurrence/UpdateOcur
 router.post("/session", new AuthUserController_1.AuthUserController().handle);
 router.post("/user", new CreateUserController_1.CreateUserController().handle);
 router.delete("/ocurrence/:id", isAuthenticated_1.isAuthenticated, new DeleteOcurrenceController_1.DeleteOcurrenceController().handle);
-router.put("ocurrence/:id", isAuthenticated_1.isAuthenticated, new UpdateOcurrenceConstroller_1.UpdateOcurrenceController().handle);
+router.put("/ocurrence/:id", isAuthenticated_1.isAuthenticated, new UpdateOcurrenceConstroller_1.UpdateOcurrenceController().handle);

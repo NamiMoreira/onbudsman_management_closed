@@ -14,7 +14,7 @@ const DeleteOcurrenceService_1 = require("../../services/occurrence/DeleteOcurre
 class DeleteOcurrenceController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let { id } = req.params;
+            let id = req.params;
             const deleteOcurrence = new DeleteOcurrenceService_1.DeleteOcurrenceService();
             try {
                 const ocurrenceDeleted = yield deleteOcurrence.execute(id);

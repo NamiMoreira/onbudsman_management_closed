@@ -3,7 +3,7 @@ import { DeleteOcurrenceService } from "../../services/occurrence/DeleteOcurrenc
 
 class DeleteOcurrenceController {
   async handle(req: Request, res: Response) {
-    let { id } = req.params;
+    let id = req.params;
 
     const deleteOcurrence = new DeleteOcurrenceService();
     try {

@@ -12,6 +12,7 @@ const host = '192.168.30.26'
 
 app.use(express.urlencoded());
 app.use(bodyParser.json())
+app.use(express.json());
 app.use(router);
 app.use(cors());
 app.use(

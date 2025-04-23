@@ -2,6 +2,7 @@ import prismaClient from "../../prisma";
 
 class UpdateOcurrenceService {
   async execute(
+    
     id,
     {
       reanalise,
@@ -21,7 +22,10 @@ class UpdateOcurrenceService {
       canal_id,
     }
   ) {
-    id = Number(id);
+    id = parseInt(id);
+    
+    
+    
 
     const ocurrence = prismaClient.occurrence.update({
       where: {
@@ -45,6 +49,10 @@ class UpdateOcurrenceService {
         canal_id: canal_id
       },
     }); 
+    
+    return ocurrence;
+    
+    
   }
 }
 

@@ -15,6 +15,7 @@ const port = 8090;
 const host = '192.168.30.26';
 app.use(express_1.default.urlencoded());
 app.use(bodyParser.json());
+app.use(express_1.default.json());
 app.use(routes_1.router);
 app.use((0, cors_1.default)());
 app.use('files', express_1.default.static(path.resolve(__dirname, '..', 'tmp')));
