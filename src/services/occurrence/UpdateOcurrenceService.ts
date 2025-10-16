@@ -27,7 +27,7 @@ class UpdateOcurrenceService {
     
     
 
-    const ocurrence = prismaClient.occurrence.update({
+    const ocurrence = await prismaClient.occurrence.update({
       where: {
         id: id,
       },

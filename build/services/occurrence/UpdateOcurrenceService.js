@@ -18,7 +18,7 @@ class UpdateOcurrenceService {
     execute(id_1, _a) {
         return __awaiter(this, arguments, void 0, function* (id, { reanalise, classificacao_id, unidade_id, descricao, cartao_beneficiario, manifestacao_ant, identificacao_id, forma_resposta_id, assunto_id, sub_assunto_id, nome, email, CPF, telefone, canal_id, }) {
             id = parseInt(id);
-            const ocurrence = prisma_1.default.occurrence.update({
+            const ocurrence = yield prisma_1.default.occurrence.update({
                 where: {
                     id: id,
                 },

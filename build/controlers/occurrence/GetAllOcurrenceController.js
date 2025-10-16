@@ -18,7 +18,6 @@ class GetAllOcurrenceController {
             console.log(protocol);
             const getOcurrence = new GetAllOcurrenceService_1.GetAllOcurrenceService();
             const ocurrences = yield getOcurrence.execute(protocol);
-            console.log(ocurrences);
             return res.json(ocurrences);
         });
     }

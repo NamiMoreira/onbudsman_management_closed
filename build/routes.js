@@ -10,8 +10,10 @@ const CreateUserController_1 = require("./controlers/user/CreateUserController")
 const DeleteOcurrenceController_1 = require("./controlers/occurrence/DeleteOcurrenceController");
 const UpdateOcurrenceConstroller_1 = require("./controlers/occurrence/UpdateOcurrenceConstroller");
 const GetAllOcurrenceController_1 = require("./controlers/occurrence/GetAllOcurrenceController");
+const CreateOcurrenceController_1 = require("./controlers/occurrence/CreateOcurrenceController");
 router.post("/session", new AuthUserController_1.AuthUserController().handle);
 router.post("/user", new CreateUserController_1.CreateUserController().handle);
 router.delete("/ocurrence/:id", isAuthenticated_1.isAuthenticated, new DeleteOcurrenceController_1.DeleteOcurrenceController().handle);
+router.post("/ocurrence", new CreateOcurrenceController_1.CreateOcurrenceController().handle);
 router.put("/ocurrence/:id", isAuthenticated_1.isAuthenticated, new UpdateOcurrenceConstroller_1.UpdateOcurrenceController().handle);
 router.get("/ocurrence", isAuthenticated_1.isAuthenticated, new GetAllOcurrenceController_1.GetAllOcurrenceController().handle);
